@@ -1,0 +1,27 @@
+import React, { Component } from 'react';
+import axios from 'axios';
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state={
+      posts: "all posts"
+    };
+  }
+  componentWillMount() {
+    console.log('hello will mount');
+    axios.get('http://localhost:3000/posts', function(res){
+
+    })
+    // 在此处发 Ajax 请求，
+    // 请求服务器端的 json 数据
+  }
+  render() {
+    return(
+      <div>
+        { this.state.posts }
+      </div>
+    );
+  }
+}
+export default App;

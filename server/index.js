@@ -10,6 +10,9 @@ app.get('/:name', function (req, res) {
             "</html>"
  res.send(page);
 })
+app.post('/:name',function(req, res){
+  res.send('hihi');
+})
 app.get('/hi', function (req, res) {
   var page="<html>" +
             "<body>" +
