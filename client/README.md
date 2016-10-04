@@ -64,3 +64,5 @@ https://coding.net/u/happypeter/p/react-express-api-demo/git
 # 四.前后台分离
  后台只负责json数据，不负责html/css，前后台沟通的数据格式是json，前台请求数据的方式是：发ajax
  - 第一步：搭建React-webpack环境
+# 五.以github为例查看报头（header）
+ 在命令行中输入 curl -i https://api.github.com/users/always1122/orgs
