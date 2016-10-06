@@ -4,7 +4,9 @@ var Schema = mongoose.Schema;
 var PostSchema = new Schema(
   {
     title:String,
-    tag:String
+    // tag:String,
+    category:String,
+    content:String
   }
 )
 

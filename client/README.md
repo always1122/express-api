@@ -34,8 +34,7 @@ curl -H "Content-Type: application/json" -X POST -d
 - 在命令行中输入：curl -H "Content-Type: application/json" -X POST -d '{"title":"myTitle","content":"myContent"}' http://localhost:3000/posts
 
 ## api
-- api是由当前程序提供出来的，提供给另外一个程序的开发者来使用的
-- 作为前端开发者，我们所说的是web api
+- api是由当前程序提供出说的是web api
  - web api就是一个请求，请求结果是json数据
 ### 参考代码：
 https://coding.net/u/happypeter/p/react-express-api-demo/git
@@ -64,5 +63,21 @@ https://coding.net/u/happypeter/p/react-express-api-demo/git
 # 四.前后台分离
  后台只负责json数据，不负责html/css，前后台沟通的数据格式是json，前台请求数据的方式是：发ajax
  - 第一步：搭建React-webpack环境
+
 # 五.以github为例查看报头（header）
  在命令行中输入 curl -i https://api.github.com/users/always1122/orgs
+
+## * POST /posts  according to REST api structrue
+ 例如把一篇博客当做一个resources资源
+ - GET /posts  列出所有博客
+
+ - PUT /posts/:post_id   更新一篇博客
+
+ - DELETE /posts/:post_id  删除一篇博客
+
+ - GET /posts/:post_id  打开一篇博客
+
+## * REST 架构有两大优势
+ -  1.请求的格式符合正常用户思维
+
+ -  2.最大程度的尊重了 http verb 设计者的原始意图
