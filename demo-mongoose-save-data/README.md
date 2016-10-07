@@ -36,3 +36,20 @@ $ db.xxx.insert({aa:'sss'})
 ```
 $ db.xxx.find()
 ```
+
+#### 世界上第一位程序员 Ada
+![](https://github.com/happypeter/digicity-express-api/blob/master/doc/img/001-ada.png?raw=true)
+
+### 删除集合中的一条记录
+```
+$ db.xxx.remove({aa:'sss'})
+```
+### 删除集合中所有的记录
+```
+$ db.xxx.remove({})
+```
+### 删除数据库 express-api
+```
+$ use express-api
+$ db.dropDatabase()
+```
