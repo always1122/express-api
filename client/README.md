@@ -88,3 +88,4 @@ https://api.github.com/users/always1122/orgs
 ## * axios
 - axios传统上我们认为它就是发ajax请求的，类似s.ajax()
 - axios 就是用来发http请求的
+## 后台路由代码执行触发条件，就是前台request
