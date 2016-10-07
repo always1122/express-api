@@ -36,6 +36,7 @@ curl -H "Content-Type: application/json" -X POST -d
 ## api
 - api是由当前程序提供出说的是web api
  - web api就是一个请求，请求结果是json数据
+
 ### 参考代码：
 https://coding.net/u/happypeter/p/react-express-api-demo/git
 
@@ -65,7 +66,9 @@ https://coding.net/u/happypeter/p/react-express-api-demo/git
  - 第一步：搭建React-webpack环境
 
 # 五.以github为例查看报头（header）
- 在命令行中输入 curl -i https://api.github.com/users/always1122/orgs
+ 在命令行中输入 curl -i
+
+https://api.github.com/users/always1122/orgs
 
 ## * POST /posts  according to REST api structrue
  例如把一篇博客当做一个resources资源
@@ -81,3 +84,7 @@ https://coding.net/u/happypeter/p/react-express-api-demo/git
  -  1.请求的格式符合正常用户思维
 
  -  2.最大程度的尊重了 http verb 设计者的原始意图
+
+## * axios
+- axios传统上我们认为它就是发ajax请求的，类似s.ajax()
+- axios 就是用来发http请求的
