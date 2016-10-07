@@ -5,7 +5,7 @@
 
 - 命令行接口CLI（对于mongodb 使用mongo shell命令来操作）
 
-#### 启动服务器
+#### 启动mongodb
   ```
   $ mongod --dbpath=./data/db
   ```
@@ -79,8 +79,11 @@ app.listen(3000, function(){
 curl --request POST localhost:3000/posts
 
 如果可以在运行 node index.js 的位置看到 hello 表示我们这一步胜利完成。
+
+![](https://raw.githubusercontent.com/happypeter/digicity-express-api/master/doc/img/003-curl.png)
+
 ## 4.安装mongoose
-### 作为一个npm包进行安装[link](htps:www.npmjs.com/package/mongoose)
+### 作为一个npm包进行安装[link] (htps:www.npmjs.com/package/mongoose)
 ```
 $ npm i --save mongoose
 ```
@@ -92,7 +95,12 @@ var mongoose = require('mongoose');
 ```
 mongoose.connect('mongodb://localhost:27017/express-api');
 ```
-判断是否连接成功：
+mongoose.connect 接口用来连接我们系统上安装的 mongodb 数据库。
+如何定位数据库的所在位置：
+- 一个逻辑上可行的方案，就是用数据存储的文件夹的位置(如前面采用的data/db文件夹)，但实际上有其他方法。
+- mongodb软件，运行起来类似一个网站，用连接来访问(mongodb://localhost:27017)但是连接以后，要跟上具体的数据库全名。我们每次连接都是连接到一个数据库，比如我们这里就是express-api(一般与项目名同名)。
+
+#### 判断是否连接成功：
 ```
 var db = mongoose.connection;
 db.on('error', console.log);
@@ -101,6 +109,7 @@ db.once('open', function() {
 });
 ```
 ### 定义数据的概要 Schema
+#### 新建一个文件 models/post.js
 ```
 var Schema = mongoose.Schema;
 var PostSchema = new Schema(
@@ -112,7 +121,6 @@ var PostSchema = new Schema(
 )
 ```
 ### 创建数据模型 model
-#### 新建一个文件 models/post.js
 ```
 module.exports = mongoose.model('Post', PostSchema);
 ```
