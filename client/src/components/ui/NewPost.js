@@ -22,7 +22,7 @@ class NewPosts extends Component {
   }
 
 //所有的代码都在客户端中运行
-  
+
   newPosts(data){
      //axios传统上我们认为它就是发ajax请求的，类似s.ajax()
      //axios 就是用来发http请求的

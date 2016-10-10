@@ -19,7 +19,7 @@ export default class PostList extends Component {
         margin: '20px auto',
         backgroundColor: '#eef3f2',
         borderRadius: '5px',
-        padding: '16px',
+        padding: '30px',
         boxShadow: '#03a9f4 0px 1px 6px, #03a9f4 0px 1px 4px'
       },
       title: {
@@ -43,8 +43,19 @@ export default class PostList extends Component {
         textDecoration:'none',
         color:'#00bcd4',
         display:'block',
-        paddingTop:'10px'
-      }
+        float:'left'
+      },
+      btn1:{
+        textDecoration:'none',
+        color:'#00bcd4',
+        display:'block',
+        float:'right'
+      },
+      a:{
+       position:'absolute',
+       right:'16px',
+       top:'20px'
+     }
     }
   }
   componentWillMount() {
@@ -63,7 +74,8 @@ export default class PostList extends Component {
       return (
         <div style={styles.content} key={post._id}>
           <div style={styles.title}>{post.title}</div>
-          <Link to ={`/post/${post._id}`} style={styles.btn}>查看</Link>
+                <Link to={`/posts/${post._id}`} style={styles.btn}>查看</Link>
+                <Link to={`/posts/${post._id}/edit`} style={styles.btn1}>编辑</Link>
         </div>
       )
     }, this.state.posts);
