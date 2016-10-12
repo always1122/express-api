@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import axios from 'axios';
+import Settings from '../../settings';
 
 class ShowPost extends React.Component {
   constructor(){
@@ -44,7 +45,7 @@ class ShowPost extends React.Component {
   }
   componentDidMount() {
     let id = this.props.params.id;
-    let address = `http://localhost:3000/post/${id}`;
+    let address = `${Settings.host}/post/${id}`;
     axios.get(address).then(res => {
       console.log(res.data.post);
       this.setState({
