@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import map from 'lodash/fp/map';
 import axios from 'axios';
-import {Link} from 'react-router';
+import { Link } from 'react-router';
+import Settings from '../../settings';
+import filter from 'lodash/fp/filter';
 
 
 export default class PostList extends Component {
@@ -51,22 +53,39 @@ export default class PostList extends Component {
         display:'block',
         float:'right'
       },
-      a:{
-       position:'absolute',
-       right:'16px',
-       top:'20px'
+      btn2:{
+        textDecoration:'none',
+        color:'#00bcd4',
+        display:'block',
+        float:'right',
+        marginRight:'10px'
      }
     }
   }
   componentWillMount() {
     //  Promise
     axios.get('http://localhost:3000/posts').then(res => {
-      console.log('axios');
       this.setState({
         posts: res.data.posts
       });
-      console.log(this.state.posts);
     });
+  }
+  filterPosts(id) {
+    // this.state.posts
+    var newPosts = filter((post) => {
+      return post._id !== id
+    }, this.state.posts);
+    this.setState({
+      posts: newPosts
+    })
+  }
+  handleClick(value) {
+    // REST
+    axios.delete(`${Settings.host}/posts/${value}`).then(res => {
+      console.log('filering..!');
+      // 修改 this.state.posts 里面删除一个 Post
+      this.filterPosts(value);
+    })
   }
   render() {
     const styles = this.getStyles();
@@ -76,6 +95,7 @@ export default class PostList extends Component {
           <div style={styles.title}>{post.title}</div>
                 <Link to={`/posts/${post._id}`} style={styles.btn}>查看</Link>
                 <Link to={`/posts/${post._id}/edit`} style={styles.btn1}>编辑</Link>
+                <Link to={``} style={styles.btn2} onClick={this.handleClick.bind(this, post._id)}>删除</Link>
         </div>
       )
     }, this.state.posts);
